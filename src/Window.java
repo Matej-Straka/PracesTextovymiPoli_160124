@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
 
 
@@ -17,18 +15,8 @@ public class Window extends JFrame {
         setTitle("Test práce s tlačítky");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         copiedNumber.setEditable(false);
-        genBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                randomNumber.setText(String.valueOf(vygenerujCislo()));
-            }
-        });
-        copyBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                copiedNumber.append(randomNumber.getText() + "\n");
-            }
-        });
+        genBtn.addActionListener(e -> randomNumber.setText(String.valueOf(vygenerujCislo())));
+        copyBtn.addActionListener(e -> copiedNumber.append(randomNumber.getText() + "\n"));
     }
     public int vygenerujCislo(){
         Random rand = new Random();
